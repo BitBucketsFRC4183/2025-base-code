@@ -34,7 +34,7 @@ public class DriveCommands {
   /**
    * Field relative drive command using two joysticks (controlling linear and angular velocities).
    */
-  public static Command joystickDrive(
+  public static Command BaseDriveCommand(
       Drive drive,
       DoubleSupplier xSupplier,
       DoubleSupplier ySupplier,
