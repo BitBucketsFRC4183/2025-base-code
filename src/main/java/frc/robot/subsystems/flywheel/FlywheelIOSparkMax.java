@@ -21,7 +21,6 @@ import com.revrobotics.SparkPIDController;
 import com.revrobotics.SparkPIDController.ArbFFUnits;
 import edu.wpi.first.math.util.Units;
 
-
 public class FlywheelIOSparkMax implements FlywheelIO {
   private static final double GEAR_RATIO = 1; // change
 

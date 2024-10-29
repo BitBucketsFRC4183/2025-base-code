@@ -33,9 +33,8 @@ public class Flywheel extends SubsystemBase {
   public Flywheel(FlywheelIO io) {
     this.io = io;
 
-
     switch (Constants.currentMode) {
-      case REAL: //TODO CONFIGURE
+      case REAL: // TODO CONFIGURE
       case REPLAY:
         ffModel = new SimpleMotorFeedforward(0.1, 0.05);
         io.configurePID(1.0, 0.0, 0.0);

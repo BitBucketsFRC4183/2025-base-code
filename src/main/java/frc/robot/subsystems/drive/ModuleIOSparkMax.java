@@ -27,9 +27,8 @@ import java.util.OptionalDouble;
 import java.util.Queue;
 
 /**
- * SparkMax drive motor controller, SparkMax turn motor controller (NEO
- * or NEO 550), and analog absolute encoder connected to the RIO
- *
+ * SparkMax drive motor controller, SparkMax turn motor controller (NEO or NEO 550), and analog
+ * absolute encoder connected to the RIO
  */
 public class ModuleIOSparkMax implements ModuleIO {
   // Gear ratios for SDS MK4i L2, adjust as necessary

@@ -30,7 +30,6 @@ import java.util.Queue;
 /**
  * Module IO implementation for Talon FX drive motor controller, Talon FX turn motor controller, and
  * CANcoder
- *
  */
 public class ModuleIOTalonFX implements ModuleIO {
   private final TalonFX driveTalon;

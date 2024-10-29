@@ -149,12 +149,11 @@ public class Drive extends SubsystemBase {
 
     // Update odometry
     updateSwerveModules();
-
   }
 
   public void updateSwerveModules() {
     double[] sampleTimestamps =
-            modules[0].getOdometryTimestamps(); // All signals are sampled together
+        modules[0].getOdometryTimestamps(); // All signals are sampled together
     int sampleCount = sampleTimestamps.length;
     for (int i = 0; i < sampleCount; i++) {
       // Read wheel positions and deltas from each module
@@ -163,10 +162,10 @@ public class Drive extends SubsystemBase {
       for (int moduleIndex = 0; moduleIndex < 4; moduleIndex++) {
         modulePositions[moduleIndex] = modules[moduleIndex].getOdometryPositions()[i];
         moduleDeltas[moduleIndex] =
-                new SwerveModulePosition(
-                        modulePositions[moduleIndex].distanceMeters
-                                - lastModulePositions[moduleIndex].distanceMeters,
-                        modulePositions[moduleIndex].angle);
+            new SwerveModulePosition(
+                modulePositions[moduleIndex].distanceMeters
+                    - lastModulePositions[moduleIndex].distanceMeters,
+                modulePositions[moduleIndex].angle);
         lastModulePositions[moduleIndex] = modulePositions[moduleIndex];
       }
       if (gyroInputs.connected) {

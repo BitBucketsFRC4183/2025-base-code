@@ -45,7 +45,7 @@ public class Module {
     // Switch constants based on mode (the physics simulator is treated as a
     // separate robot with different tuning)
     switch (Constants.currentMode) {
-      case REAL: //TODO find constants
+      case REAL: // TODO find constants
       case REPLAY:
         driveFeedforward = new SimpleMotorFeedforward(0.1, 0.13);
         driveFeedback = new PIDController(0.05, 0.0, 0.0);
@@ -66,7 +66,6 @@ public class Module {
     turnFeedback.enableContinuousInput(-Math.PI, Math.PI);
     setBrakeMode(true);
   }
-
 
   public void updateInputs() {
     io.updateInputs(inputs);
@@ -103,11 +102,9 @@ public class Module {
 
     // Calculate positions for odometry
     calculateSwerveModulePosition();
-
   }
 
-
-  /** Runs the module with the specified setpoint state.*/
+  /** Runs the module with the specified setpoint state. */
   public SwerveModuleState runSetpoint(SwerveModuleState state) {
     // Optimize state based on current angle
     // Controllers run in "periodic" when the setpoint is not null
@@ -118,14 +115,15 @@ public class Module {
 
     return optimizedState;
   }
+
   public void calculateSwerveModulePosition() {
     int sampleCount = inputs.odometryTimestamps.length; // All signals are sampled together
     odometryPositions = new SwerveModulePosition[sampleCount];
     for (int i = 0; i < sampleCount; i++) {
       double positionMeters = inputs.odometryDrivePositionsRad[i] * WHEEL_RADIUS;
       Rotation2d angle =
-              inputs.odometryTurnPositions[i].plus(
-                      turnRelativeOffset != null ? turnRelativeOffset : new Rotation2d());
+          inputs.odometryTurnPositions[i].plus(
+              turnRelativeOffset != null ? turnRelativeOffset : new Rotation2d());
       odometryPositions[i] = new SwerveModulePosition(positionMeters, angle);
     }
   }
